@@ -1,0 +1,46 @@
+﻿@model signalRd1.Models.Employee
+
+@{
+    ViewData["Title"] = "add";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="add" onsubmit="whenSubmit()">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input id="name" asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="age" class="control-label"></label>
+                <input id="age" asp-for="age" class="form-control" />
+                <span asp-validation-for="age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="address" class="control-label"></label>
+                <input id="address" asp-for="address" class="form-control" />
+                <span asp-validation-for="address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.5/signalr.min.js" integrity="sha512-Wj6cUe+56vJ4FtfeF4QqPHy4VGO9gZ2iU8GFlLRjawhx1f4sW3BezJLU1ewaZl3bZV8iya0EJOmRY5SD9XTwvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+     const con = new signalR.HubConnectionBuilder().withUrl("/empHup").build();
+     con.start();
+    function whenSubmit(){
+      var obj={
+          name:$("#name").val(),
+          age:Number($("#age").val()),
+          address:$("#address").val(),
+      };
+        con.invoke("addEmp",obj);
+    }
+    </script>
+}

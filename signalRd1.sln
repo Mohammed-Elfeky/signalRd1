@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "signalRd1", "signalRd1\signalRd1.csproj", "{18275575-21E1-4163-A1E4-FA80536B5F25}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18275575-21E1-4163-A1E4-FA80536B5F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18275575-21E1-4163-A1E4-FA80536B5F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18275575-21E1-4163-A1E4-FA80536B5F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18275575-21E1-4163-A1E4-FA80536B5F25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54FFAC4D-A30E-4AEE-9402-F28191E15ABD}
+	EndGlobalSection
+EndGlobal

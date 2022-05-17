@@ -1,0 +1,58 @@
+﻿@model IEnumerable<signalRd1.Models.Employee>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.5/signalr.min.js" integrity="sha512-Wj6cUe+56vJ4FtfeF4QqPHy4VGO9gZ2iU8GFlLRjawhx1f4sW3BezJLU1ewaZl3bZV8iya0EJOmRY5SD9XTwvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+     const con = new signalR.HubConnectionBuilder().withUrl("/empHup").build();
+     con.start();
+     con.on("whenAdd",function({name,age,address}){
+         $("tbody").append(`
+            <tr>
+            <td>
+                ${name}
+            </td>
+            <td>
+                ${age}
+            </td>
+            <td>
+                ${address}
+            </td>
+        </tr>
+         `)
+     });
+    </script>
+}
