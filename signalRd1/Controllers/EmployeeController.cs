@@ -15,6 +15,11 @@ namespace signalRd1.Controllers
             var employees=db.Employees.ToList();
             return View(employees);
         }
+        public IActionResult IndexJson()
+        {
+            var employees = db.Employees.ToList();
+            return Json(employees);
+        }
 
         public IActionResult add()
         {

@@ -9,7 +9,6 @@ namespace signalRd1.Hubs
         {
             this.db = db;
         }
-
         public void addEmp(Employee employee)
         {
             db.Employees.Add(employee);
@@ -17,7 +16,5 @@ namespace signalRd1.Hubs
 
             Clients.All.SendAsync("whenAdd", employee);
         }
-
-
     }
 }
